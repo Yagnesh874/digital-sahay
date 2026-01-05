@@ -20,7 +20,6 @@ const Landingpage = () => {
     setIsVisible(true);
   }, []);
 
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -53,7 +52,7 @@ const Landingpage = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden font-sans">
+    <section className="relative w-full min-h-screen  flex items-center justify-center overflow-hidden font-sans">
       {/* Background Image with Enhanced Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -66,7 +65,6 @@ const Landingpage = () => {
         />
         {/* Gradient overlay for better text contrast */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950/40 via-blue-950/35 to-cyan-950/40" />
-
       </div>
 
       {/* ============================
@@ -613,7 +611,7 @@ const Landingpage = () => {
             {/* Features Grid */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 items-stretch"
             >
               {[
                 {
@@ -625,7 +623,7 @@ const Landingpage = () => {
                 },
                 {
                   title: "Compliance Excellence",
-                  description: "Navigating regulations with precision",
+                  description: "Navigating regulations with precision for modern business",
                   icon: ShieldCheck,
                   color:
                     "border-blue-500/30 hover:border-blue-500 text-blue-400",
@@ -643,32 +641,38 @@ const Landingpage = () => {
                 return (
                   <motion.div
                     key={i}
-                    className="relative group"
+                    className="relative group h-full"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isVisible ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.5 + i * 0.1, duration: 0.6 }}
                     whileHover={{ y: -5 }}
                   >
                     <div
-                      className={`bg-slate-900/30 backdrop-blur-sm border ${feature.color} rounded-xl p-6 transition-all duration-300 group-hover:bg-slate-800/40`}
+                      className={`h-full flex flex-col bg-slate-900/30 backdrop-blur-sm border ${feature.color}
+          rounded-xl p-6 transition-all duration-300 group-hover:bg-slate-800/40`}
                     >
                       {/* ICON */}
-                      <div className="mb-4 flex items-center justify-center">
+                      <div className="mb-4 flex items-center justify-start md:justify-center">
                         <Icon className="w-8 h-8" />
                       </div>
+                      <div className="mt-3">
+                        {/* TITLE */}
+                        <h3 className="text-xl font-bold text-white ">
+                          {feature.title}
+                        </h3>
 
-                      {/* TITLE */}
-                      <h3 className="text-xl font-bold text-white mb-3">
-                        {feature.title}
-                      </h3>
-
-                      {/* DESCRIPTION */}
-                      <p className="text-slate-400 text-sm">
-                        {feature.description}
-                      </p>
+                        {/* DESCRIPTION */}
+                        <p className="text-slate-400 text-sm flex-grow ">
+                          {feature.description}
+                        </p>
+                      </div>
 
                       {/* HOVER LINE */}
-                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-current to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div
+                        className="absolute bottom-0 left-0 right-0 h-0.5
+            bg-gradient-to-r from-transparent via-current to-transparent
+            opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      />
                     </div>
                   </motion.div>
                 );
