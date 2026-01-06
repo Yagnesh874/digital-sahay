@@ -52,11 +52,17 @@ const Landingpage = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen  flex items-center justify-center overflow-hidden font-sans">
+<section className="relative w-full
+    md:h-screen
+    min-h-[100dvh]
+    overflow-y-auto md:overflow-hidden
+    overflow-x-hidden
+    flex items-center justify-center
+    font-sans">
       {/* Background Image with Enhanced Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/coding.jpg"
+          src="/bg2.jpg"
           alt="background"
           fill
           priority
@@ -67,9 +73,6 @@ const Landingpage = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950/40 via-blue-950/35 to-cyan-950/40" />
       </div>
 
-      {/* ============================
-           ARROW ANIMATIONS
-      ============================ */}
 
       {/* Left to Right Arrows */}
       <div className="absolute inset-0 z-[5] pointer-events-none">
@@ -549,7 +552,7 @@ const Landingpage = () => {
                   {/* Logo Wrapper */}
                   <div className="relative w-10 h-10  sm:w-12 sm:h-12  md:w-14 md:h-14  lg:w-16 lg:h-16 rounded-full overflow-hidden">
                     <Image
-                      src="/logo.jpeg"
+                      src="/logo2.jpg"
                       alt="Digital Sahay Logo"
                       fill
                       sizes="(max-width: 640px) 40px,
