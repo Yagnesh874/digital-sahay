@@ -545,11 +545,23 @@ const Landingpage = () => {
             {/* Header Section */}
             <div className="text-center mb-10 sm:mb-12 md:mb-16">
               <motion.div variants={itemVariants} className="mb-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-900/30 backdrop-blur-sm border border-cyan-700/30 mb-6">
-                  <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                  <span className="text-cyan-300 text-sm font-medium">
-                    COMING SOON
-                  </span>
+                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full  mb-6">
+                  {/* Logo Wrapper */}
+                  <div className="relative w-10 h-10  sm:w-12 sm:h-12  md:w-14 md:h-14  lg:w-16 lg:h-16 rounded-full overflow-hidden">
+                    <Image
+                      src="/logo.jpeg"
+                      alt="Digital Sahay Logo"
+                      fill
+                      sizes="(max-width: 640px) 40px,
+               (max-width: 768px) 48px,
+               (max-width: 1024px) 56px,
+               64px"
+                      className="object-cover rounded-full"
+                      priority
+                    />
+                  </div>
+
+                  {/* Optional Text */}
                 </div>
               </motion.div>
 
@@ -566,7 +578,7 @@ const Landingpage = () => {
                       duration: 0.4,
                       delay: index * 0.03,
                     }}
-                    className="inline-block hover:text-cyan-300 transition-colors duration-300 relative group"
+                    className="inline-block  relative group"
                     whileHover={{
                       scale: 1.1,
                       y: -2,
@@ -574,7 +586,7 @@ const Landingpage = () => {
                     }}
                   >
                     {char === " " ? "\u00A0" : char}
-                    <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300" />
+                    <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-cyan-400 group-" />
                   </motion.span>
                 ))}
               </motion.h1>
@@ -623,7 +635,8 @@ const Landingpage = () => {
                 },
                 {
                   title: "Compliance Excellence",
-                  description: "Navigating regulations with precision for modern business",
+                  description:
+                    "Navigating regulations with precision for modern business",
                   icon: ShieldCheck,
                   color:
                     "border-blue-500/30 hover:border-blue-500 text-blue-400",
